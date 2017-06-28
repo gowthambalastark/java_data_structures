@@ -1,0 +1,49 @@
+import java.util.*;
+import java.util.LinkedList;
+class graph{
+int v;
+LinkedList<Integer> g[];
+graph(int size){
+v=size
+g=new LinkedList[v];
+for(int i=0;i<v;i++){
+g[i]=new LinkedList();
+}
+}
+void addit(int x, int z){
+g[x].add(z);
+}
+public boolean checkit(int a,int b){
+boolean[] tt=new boolean[v];
+LinkedList<Integer> q=new LinkedList();
+tt[a]=true;
+q.add(a);
+Iterator<Integer> l;
+while(q.size()!=0){
+int c=q.poll();
+l=g[c].listIterator();
+while(l.hasNext()){
+if(l.next()==b){
+return true;
+}
+else{
+if(!tt[l.next()]){
+q.add(l.next());
+tt[l.next()]=true;
+}
+}
+}
+}
+return false;
+}
+public static void main(String args[]){
+graph f=new graph(5);
+f.addit(1,2);
+f.addit(1,3);
+f.addit(2,4);
+f.addit(3,4);
+f.addit(4,5);
+System.out.println(f.checkit(1,5));
+}
+}
+

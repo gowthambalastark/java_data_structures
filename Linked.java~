@@ -1,0 +1,35 @@
+import java.util.*;
+class Linkedit{
+static class Node{
+static Node next;
+int data;
+public void Node(int t){
+data=t;
+next=null;
+}
+}
+static Node head=null,tail=null;
+public void insert(int data){
+if(head==null){
+head=new Node(data);
+}
+else{
+tail.next=new Node(data);
+}
+tail=new Node(data);
+tail.next=null;
+}
+public void show(){
+while(head.next!=null){
+System.out.println(head.data);
+head=head.next;
+}
+}
+public static void main(String args[]){
+Linkedit g=new Linkedit();
+g.insert(3);
+g.insert(4);
+g.insert(5);
+g.show();
+}
+}
